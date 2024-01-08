@@ -1,0 +1,24 @@
+@import '../../sass/variables';
+
+.codeblock{
+    position: relative;
+    .clipboard{
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        transition: all ease .3s;
+        svg{
+            fill: $color-white;
+            stroke: $color-white;
+        }
+        &:hover{
+            svg{
+                fill: $color-1;
+                stroke: $color-1;
+            }
+        }
+        
+    }
+}

@@ -1,0 +1,196 @@
+@import '../sass/variables';
+
+.sqlia{
+    display: flex;
+    width: 100%;
+    height: 100dvh;
+    article{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        gap: $marge;
+        p{
+            line-height: 1.5;
+        }
+        h2, h3{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: $marge;
+            font-size: 3rem;
+            font-weight: lighter;
+            color: $color-1;
+            font-family: $font-title;
+        }
+        h3{
+          font-size: 2rem;
+      }
+      
+    }
+    aside{
+        width: 50%;
+        position: relative;
+        .p_aside{
+            position: absolute;
+            inset: 0;
+            line-height: 1.5;
+            top: $marge;
+            font-size: 0.75rem;
+            width: clamp(375px, 100%, 500px);
+        }
+        h1{
+            font-size: 7rem;
+            font-weight: bolder;
+            color: $color-1;
+            font-family: $font-title;
+            text-transform: uppercase;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            mix-blend-mode: difference;
+        }
+        .planet{
+            width: 250%;
+            height: 100%;
+            z-index: -1;
+                position: absolute;
+                pointer-events: none;
+                bottom: -15%;
+                left: -80%;
+                div{
+                    canvas{
+                        width: 50%;
+                        
+                    }
+                }
+                &.xss, &.rfi{
+                  left: -92.5%;
+                  bottom: -37.5%;
+                }
+        }
+        
+    }
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: calc($marge / 2);
+  div{
+      display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: calc($marge / 3);
+  }
+  .kave {
+      cursor: pointer;
+      &-btn {
+          cursor: pointer;
+        position: relative;
+        border: solid 1px $color-2;
+        background: none;
+        color: $color-2;
+        text-transform: uppercase;
+        font-weight: normal;
+        letter-spacing: 1.8px;
+        width: 200px;
+        height: 50px;
+        padding: 0;
+        transition: all 0.25s ease;
+        outline: none;
+        &:before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 10%;
+          width: 60px;
+          height: 1px;
+          transform: translateY(-1px);
+          background: $color-1;
+          transition: all 0.25s ease;
+        }
+        &:after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          right: 10%;
+          width: 60px;
+          height: 1px;
+          transform: translateY(1px);
+          background: $color-1;
+          transition: all 0.25s ease;
+        }
+        &:hover {
+          color: $color-1;
+          &.kave-btn:before {
+            left: 0;
+            width: 20px;
+          }
+          &.kave-btn:after {
+            right: 0;
+            width: 20px;
+          }
+          .kave-line:before {
+            bottom: 0;
+          }
+          .kave-line:after {
+            top: 0;
+          }
+        }
+      }
+      &-line {
+        &:before {
+          content: "";
+          position: absolute;
+          bottom: 30%;
+          right: 0;
+          width: 1px;
+          height: 20px;
+          transform: translateX(1px);
+          background: $color-1;
+          transition: all 0.25s ease;
+        }
+        &:after {
+          content: "";
+          position: absolute;
+          top: 30%;
+          left: 0;
+          width: 1px;
+          height: 20px;
+          transform: translateX(-1px);
+          background: $color-1;
+          transition: all 0.25s ease;
+        }
+      }
+    }
+    
+}
+
+.reward-popup{
+  position: fixed;
+    width: 300px;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    gap: $marge;
+    font-size: .75rem;
+    padding: $marge;
+    background-color: $color-black;
+    border: calc($marge / 2) solid $color-1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    a{
+      color: $color-2;
+      transition: all ease .3s;
+      &:hover{
+        color: $color-1;
+      }
+    }
+}

@@ -1,0 +1,42 @@
+@import '../../sass/variables';
+
+.btn_popup{
+    position: absolute;
+    bottom: $marge;
+    right: $marge;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: $marge;
+    background-color: $color-1;
+    padding: $marge / 2;
+    cursor: pointer;
+    transition: all ease .3s;
+    svg{
+        fill: $color-white;
+        stroke: $color-white;
+        transition: all ease .3s;
+    }
+    &:hover{
+        background-color: $color-black;
+        color: $color-1;
+        svg{
+            fill: $color-1;
+            stroke: $color-1;
+        }
+    }
+}
+
+.popup{
+    position: fixed;
+    width: calc(100dvw - calc($marge * 6));
+    height: calc(100dvh - calc($marge * 6));
+    display: flex;
+    padding: $marge;
+    background-color: $color-black;
+    border: calc($marge / 2) solid $color-1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

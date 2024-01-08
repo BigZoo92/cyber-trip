@@ -1,0 +1,153 @@
+@import '../../sass/variables';
+
+
+$width: 300px;
+$height: 500px;
+
+.card {
+  width: 300px;
+  height: 500px; 
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  overflow: hidden;
+  transform: scale(0.8) translateY(-30px);
+  .border {
+        background: $color-1;
+        animation: 2.6s grow linear;
+    }
+}
+
+.bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none  ;
+}
+
+
+
+.background {
+  width: $width - 2px;
+  height: $height - 2px;
+  background: black;
+  top: 1px;
+  left: 1px;
+}
+
+.line {
+  height: 19px;
+  border-bottom: 1px solid;
+  border-color: $color-1;
+  opacity: 0;
+  animation-name: blink;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  @for $i from 1 through 25 {
+    &:nth-child(#{$i}) {
+      animation-delay: #{$i/10}s;
+    }
+  }
+}
+
+.cubes {
+  display: grid;
+  grid-template-columns: repeat(15, 20px);
+  grid-template-rows: repeat(4, 20px);
+}
+
+.cube {
+  border-left: 1px solid;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+  border-color: $color-1;
+  opacity: 0;
+  animation-name: blink;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
+
+  @for $j from 1 through 25 {
+    @for $i from 1 through 15 {
+      &:nth-child(#{$i + (($j - 1) * 15)}) {
+        animation-delay: #{($j/10) + random()}s;
+      }
+    }
+  }
+}
+
+.content {
+  color: $color-white;
+  padding: 0 20px;
+  z-index: 1000;
+  ul{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: $marge;
+  }
+  h4{
+    font-family: $font-title;
+    color: $color-1;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 5px;
+    font-size: 1.25rem;
+    width: 100%;
+    flex-wrap: wrap;
+    margin-bottom: $marge * 2;
+  }
+}
+
+.reveal {
+  overflow: hidden;
+    position: relative !important;
+    width: 100% !important;
+  animation: reveal 4.5s ease-in;
+}
+
+.light {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 500;
+  clip-path: polygon(
+    50% 100%,
+    0% 20%,
+    100% 20%,
+    50% 100%
+  );
+}
+
+.beam {
+  background: linear-gradient(transparent 20%, rgba($color-1, 0.5));
+  background-size: 50% 50%;
+  animation: beam 1s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%  { opacity: 1; }
+}
+
+@keyframes grow {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 100%;
+  }
+}
+
+
+@keyframes beam {
+  0% {
+    background-position: -100%;
+  }
+  50% {
+        background-position: 100%;
+  }
+}
