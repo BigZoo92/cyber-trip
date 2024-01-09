@@ -1,1 +1,1 @@
-export {default} from './SphereScene'
+export {default} from './SphereScene';
