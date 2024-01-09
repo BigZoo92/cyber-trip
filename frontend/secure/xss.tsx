@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Cookies from 'js-cookie';
 import DOMPurify from 'dompurify';
+import React from 'react';
 
 const CookieSteal = () => {
 	const [input, setInput] = useState('');
