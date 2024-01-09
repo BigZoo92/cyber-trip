@@ -1,6 +1,6 @@
 export const onSubmit = async(input: string) => {
 	try {
-		const response = await fetch('http://localhost/cyber-trip/backend/vulnerable/injection.php', {
+		const response = await fetch('https://cybertrip.enzo.givernaud.mmi-velizy.fr/backend/vulnerable/injection.php', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/x-www-form-urlencoded',

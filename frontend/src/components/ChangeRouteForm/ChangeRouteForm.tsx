@@ -7,7 +7,7 @@ const ChangeRouteForm = () => {
 	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 		await fetch(
-			'http://localhost/cyber-trip/backend/vulnerable/change_route.php',
+			'https://cybertrip.enzo.givernaud.mmi-velizy.fr/backend/vulnerable/change_route.php',
 			{
 				method: 'POST',
 				headers: {

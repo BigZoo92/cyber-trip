@@ -1,6 +1,6 @@
 export const fetchNames = async (): Promise<string[]> => {
 	try {
-		const response = await fetch('http://localhost/cyber-trip/backend/secure/names.php', {
+		const response = await fetch('https://cybertrip.enzo.givernaud.mmi-velizy.fr/backend/secure/names.php', {
 			headers: {
 				'Content-Type': 'application/json',
 			},
