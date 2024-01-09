@@ -1,0 +1,6 @@
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+Header set Access-Control-Allow-Origin: "*" (allow access from any origin)
+Header set Access-Control-Allow-Origin: "http://motech-ui.example" (allow access from only "http://motech-ui.example" origin)
+Access-Control-Allow-Origin: "http://motech-ui.example | http://other.domain" (allow access from two mentioned origins)
+</IfModule>
