@@ -6,7 +6,7 @@ import Popup from '../components/Popup';
 
 const Rfi = () => {
 	const maliciousString =
-		'http://fake-script.enzo.givernaud.mmi-velizy.fr/fake-script.js';
+		'https://fake-script.enzo.givernaud.mmi-velizy.fr/fake-script.js';
 	const code2 = `
 	import React, { FormEvent, useState } from 'react';
 
