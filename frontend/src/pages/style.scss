@@ -2,22 +2,30 @@
 
 .sqlia{
     display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: $marge * 2;
     width: 100%;
     height: 100dvh;
+    
     article{
-        width: 50%;
+        width: clamp(300px, calc(50% - $marge), 2000px);
+        @media screen and (max-width: 680px) {
+          width: 100%;
+        }
         display: flex;
         flex-direction: column;
         gap: $marge;
         p{
             line-height: 1.5;
+            font-size: clamp(0.65rem, .9vw, 1.1rem);
         }
         h2, h3{
             display: flex;
             justify-content: flex-start;
             align-items: center;
             gap: $marge;
-            font-size: 3rem;
+            font-size: clamp(1rem, 4vw, 3.5rem);
             font-weight: lighter;
             color: $color-1;
             font-family: $font-title;
@@ -28,18 +36,21 @@
       
     }
     aside{
-        width: 50%;
+        width: clamp(300px, calc(50% - $marge), 2000px);
+        @media screen and (max-width: 680px) {
+          width: 100%;
+          height: 250px;
+        }
         position: relative;
         .p_aside{
             position: absolute;
             inset: 0;
             line-height: 1.5;
             top: $marge;
-            font-size: 0.75rem;
-            width: clamp(375px, 100%, 500px);
+            width: clamp(375px, 75%, 500px);
         }
         h1{
-            font-size: 7rem;
+            font-size: clamp(1.5rem, 9.25vw, 7.5rem);
             font-weight: bolder;
             color: $color-1;
             font-family: $font-title;
@@ -48,6 +59,11 @@
             top: 50%;
             transform: translateY(-50%);
             mix-blend-mode: difference;
+            @media screen and (max-width: 680px) {
+              left: 50%;
+              transform: translate(-50%, -50%);
+              text-align: center;
+            }
         }
         .planet{
             width: 250%;
@@ -57,6 +73,7 @@
                 pointer-events: none;
                 bottom: -15%;
                 left: -80%;
+               
                 div{
                     canvas{
                         width: 50%;
@@ -66,6 +83,9 @@
                 &.xss, &.rfi{
                   left: -92.5%;
                   bottom: -37.5%;
+                  @media screen and (max-width: 680px) {
+                    left: -75%;
+                  }
                 }
         }
         
@@ -83,21 +103,22 @@ form{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: calc($marge / 3);
+  gap: calc($marge / 2);
   }
   .kave {
       cursor: pointer;
       &-btn {
-          cursor: pointer;
+        font-family: $font-common;
+        cursor: pointer;
         position: relative;
         border: solid 1px $color-2;
         background: none;
         color: $color-2;
+        font-weight: 900;
         text-transform: uppercase;
-        font-weight: normal;
         letter-spacing: 1.8px;
-        width: 200px;
-        height: 50px;
+        width: 150px;
+        aspect-ratio: 4/1;
         padding: 0;
         transition: all 0.25s ease;
         outline: none;
@@ -193,4 +214,62 @@ form{
         color: $color-1;
       }
     }
+}
+
+.cookieform{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: $marge;
+}
+
+.home{
+  width: 100%;
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: $marge * 2;
+  flex-direction: column;
+  text-align: center;
+  padding-bottom: $marge * 4;
+  h1{
+    font-size: clamp(1.5rem, 9.25vw, 7.5rem);
+            font-weight: bolder;
+            color: $color-1;
+            font-family: $font-title;
+            text-transform: uppercase;
+            mix-blend-mode: difference;
+            @media screen and (max-width: 680px) {
+              text-align: center;
+            }
+  }
+  p{
+    width: 80%;
+    line-height: 1.55;
+  }
+  .cd_planet{
+    width: 50%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    gap: $marge;
+    align-items: center;
+    a{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      gap: $marge / 2;
+        font-weight: bolder;
+        text-transform: uppercase;
+        color: $color-white;
+        transition: all ease .3s;
+        &:hover{
+          color: $color-1;
+        }
+    }
+  }
 }

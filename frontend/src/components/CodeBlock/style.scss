@@ -6,12 +6,15 @@
         position: absolute;
         right: 10px;
         top: 50%;
+        padding: $marge / 6;
+        background-color: rgba(0, 0, 0, 0.667);
         transform: translateY(-50%);
         cursor: pointer;
         transition: all ease .3s;
         svg{
             fill: $color-white;
             stroke: $color-white;
+            transition: all ease .3s;
         }
         &:hover{
             svg{

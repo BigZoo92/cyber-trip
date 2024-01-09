@@ -1,9 +1,0 @@
-@font-face {
-    font-family: 'Hypebuzz';
-    src: url('HypebuzzDemo.woff2') format('woff2'),
-        url('HypebuzzDemo.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-

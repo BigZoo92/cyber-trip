@@ -13,6 +13,40 @@ const SqlIa = () => {
 	const [names, setNames] = useState<string[]>([]);
 
 	const maliciousString = '\'); TRUNCATE TABLE names; -- ';
+	const code1 = `
+<?php
+include '../db.php';
+
+$name = $_POST['name'];
+$sql = "INSERT INTO names (name) VALUES (:name)";
+
+try {
+	$stmt = $conn->prepare($sql);
+	$stmt->bindParam(':name', $name, PDO::PARAM_STR);
+	$stmt->execute();
+	echo "Name inserted successfully";
+} catch (PDOException $e) {
+	echo "Error: " . $e->getMessage();
+}
+
+$conn = null;
+`;
+	const code2 = `
+<?php
+include '../db.php';
+
+$name = $_POST['name'];
+$sql = "INSERT INTO names (name) VALUES ('$name')";
+
+try {
+	$conn->exec($sql);
+	echo "insert name successfully";
+} catch (PDOException $e) {
+	echo $sql . "<br>" . $e->getMessage();
+}
+
+$conn = null;
+`;
 
 	useEffect(() => {
 		(async () => {
@@ -63,7 +97,33 @@ const SqlIa = () => {
 				</h3>
 				<CodeBlock code={maliciousString} language="sql"></CodeBlock>
 				<Popup>
-					<h1>Wesh</h1>
+					<h1>
+						<span>SQL</span>Injection
+					</h1>
+					<h2>Description</h2>
+					<p>
+						SQL Injection is a web security vulnerability that allows an
+						attacker to interfere with the queries that an application makes to
+						its database. It generally involves inserting or "injecting"
+						malicious SQL statements into an entry field for execution.
+					</p>
+					<h3>
+						<span>Insecure</span>Version
+					</h3>
+					<p>
+						In my injection.php file, you have code that directly includes user
+						input ($name) in an SQL query. This makes it vulnerable to SQL
+						injection.
+					</p>
+					<CodeBlock code={code2} language="PHP"></CodeBlock>
+					<h4>
+						<span>Secure</span>Version
+					</h4>
+					<p>
+						To prevent SQL injection, use prepared statements with parameterized
+						queries. Here's an example:
+					</p>
+					<CodeBlock code={code1} language="PHP"></CodeBlock>
 				</Popup>
 			</article>
 		</section>
