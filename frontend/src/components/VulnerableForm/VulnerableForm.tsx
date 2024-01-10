@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { onSubmit } from './onSubmit';
-import { fetchNames } from './fetchName';
+import { useCyberContext } from '../../provider/CyberProvider';
 
 const VulnerableForm: React.FC = () => {
 	const [input, setInput] = useState('');
+	const { updateNames } = useCyberContext();
 
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		await onSubmit(input);
-		await fetchNames();
+		await updateNames();
 	};
 
 	return (

@@ -3,6 +3,7 @@ import { PagesProps } from '../components/Planet/Planet';
 import ChangeRouteForm from '../components/ChangeRouteForm';
 import Popup from '../components/Popup';
 import CodeBlock from '../components/CodeBlock';
+import SignRoad from '../components/SignRoad';
 
 const Csrf = () => {
 	const code2 = `
@@ -51,6 +52,7 @@ if ($_POST['csrf_token'] != $_SESSION['csrf_token']) {
 						page={PagesProps.CSRF}
 					/>
 				</div>
+				<SignRoad></SignRoad>
 			</aside>
 			<article>
 				<h2>

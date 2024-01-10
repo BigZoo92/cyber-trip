@@ -5,12 +5,12 @@ import './style.scss';
 import Popup from '../components/Popup';
 import CodeBlock from '../components/CodeBlock';
 import 'react-toastify/dist/ReactToastify.css';
-import { fetchNames } from '../components/VulnerableForm/fetchName';
 import List from '../components/List';
 import { PagesProps } from '../components/Planet/Planet';
+import { useCyberContext } from '../provider/CyberProvider';
 
 const SqlIa = () => {
-	const [names, setNames] = useState<string[]>([]);
+	const { names, updateNames } = useCyberContext();
 
 	const maliciousString = '\'); TRUNCATE TABLE names; -- ';
 	const code1 = `
@@ -50,10 +50,9 @@ $conn = null;
 
 	useEffect(() => {
 		(async () => {
-			const data = await fetchNames();
-			setNames(data);
+			await updateNames();
 		})();
-	}, [setNames]);
+	}, [updateNames]);
 
 	return (
 		<section className="sqlia">
