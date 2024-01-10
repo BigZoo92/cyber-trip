@@ -6,7 +6,7 @@ export const fetchRoutes = async (): Promise<string> => {
 			},
 		});
 		const data = await response.json();
-		return data;
+		return data[0][1];
 	} catch (error) {
 		console.error('Error:', error);
 		return ''; 

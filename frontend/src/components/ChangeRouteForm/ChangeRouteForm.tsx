@@ -1,21 +1,22 @@
 import React, { useState } from 'react';
 
 const ChangeRouteForm = () => {
-	const [newRoute, setNewRoute] = useState('');
+	const [route, setRoute] = useState('');
 	const [rewardPopup, setRewardPopup] = useState(false);
 
 	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
-		await fetch(
+		const data = await fetch(
 			'https://cybertrip.enzo.givernaud.mmi-velizy.fr/vulnerable/change_route.php',
 			{
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/x-www-form-urlencoded',
 				},
-				body: `newRoute=${newRoute}`,
+				body: `route=${route}`,
 			}
 		);
+		console.log(data);
 		setRewardPopup(true);
 	};
 
@@ -27,8 +28,8 @@ const ChangeRouteForm = () => {
 					<input
 						type="text"
 						name="route"
-						value={newRoute}
-						onChange={(e) => setNewRoute(e.target.value)}
+						value={route}
+						onChange={(e) => setRoute(e.target.value)}
 						placeholder="Enter new route"
 					/>
 				</div>
